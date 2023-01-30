@@ -1,35 +1,35 @@
 #!/usr/bin/python3
-"""Defines a Rectangle class."""
+"""
+A rectangle with width and height.
+"""
 
 
 class Rectangle:
-    """Represent a rectangle.
-
-    Attributes:
-        number_of_instances (int): The number of Rectangle instances.
+    """
+    Rectangle functions and data
     """
 
+    # Public
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle.
-
-        Args:
-            width (int): The width of the new rectangle.
-            height (int): The height of the new rectangle.
+        """ Instantiation
         """
-        type(self).number_of_instances += 1
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
-        """Get/set the width of the Rectangle."""
+        """ Getter for width
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
-        if not isinstance(value, int):
+        """ Setter for width
+        """
+        if type(value) != int:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
@@ -37,51 +37,64 @@ class Rectangle:
 
     @property
     def height(self):
-        """Get/set the height of the Rectangle."""
+        """ Getter for height
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        if value < 0:
-            raise VaueError("height must be >= 0")
+        """ Setter for height
+        """
+        if type(value) != int:
+            raise TypeError("idth must be an integer")
 
-        self.__heigt = value
+        if value < 0
 
+            raise VlueError("height must be >= 0")
+
+        self.__heiht = value
+
+    # Functions
     def area(self):
-        """Return the area of the Rectangle."""
-        return (self.__width * self.__height)
+        """ Returns area of rectangle
+        """
+        return self.__width * self.__height
 
     def perimeter(self):
-        """Return the perimeter of the Rectangle."""
-        if self.__width == 0 or self.__height == 0:
-            return (0)
-        return ((self.__width * 2) + (self.__height * 2))
-
-    def __str__(self):
-        """Return the printable representation of the Rectangle.
-
-        Represents the rectangle with the # character.
+        """ Returns perimeter of rectangle
         """
         if self.__width == 0 or self.__height == 0:
+            return 0
+        else:
+            return 2 * (self.__width + self.__height)
 
-           return ("")
+    def __str__(self):
+        """ print() __str__ method funtion to return rectangle in char '#'
+        """
+        res = ""
+        if self.__width == 0 or self.__height == 0:
+            return res
 
-        rect = []
         for i in range(self.__height):
-            [rect.append('#') for j in range(self.__width)]
-            if i != self.__height - 1:
-                rect.append("\n")
-        return ("".join(rect))
+            if i == self.__height - 1:
+                res += ('#' * self.__width)
+            else:
+                res += (('#' * self.__width) + '\n')
+        return res
 
     def __repr__(self):
-        """Return the string representation of the Rectangle."""
-        rect = "Rectangle(" + str(self.__width)
-        rect += ", " + str(self.__height) + ")"
-        return (rect)
+        """ print() or eval() __repr__ method function to return
+            ... Rectangle(width, height)
+        """
+        w = str(self.__width)
+        h = str(self.__height)
+
+        res = "Rectangle(" + w + ", " + h + ")"
+        return res
 
     def __del__(self):
-        """Print a message for every deletion of a Rectangle."""
-        type(self).number_of_instances -= 1
-        print("Bye rectangle...":)
+        """ Print a message for del
+            Decrement instance when del is called
+        """
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
