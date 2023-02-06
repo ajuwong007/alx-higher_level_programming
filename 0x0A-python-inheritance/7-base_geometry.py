@@ -1,22 +1,23 @@
 #!/usr/bin/python3
-"""
-Write a class BaseGeometry and add def area,
-def integer_validator where validates value with TypeError
-and ValueError
+"""BaseGeometry
 """
 
 
 class BaseGeometry:
+    """Contains functions area(), integer_validator()
     """
-    add integer validator to anterior task
-    """
+
     def area(self):
-        """raise Exception"""
+        """Function not implemented yet
+        """
+
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """ check TypeError and ValueError"""
-        if type(value) is not int:
+        """Function that validates `value`
+        """
+
+        if type(value) != int:
             raise TypeError(name + " must be an integer")
 
         if value <= 0:
