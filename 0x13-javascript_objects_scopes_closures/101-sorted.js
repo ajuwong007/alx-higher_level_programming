@@ -1,10 +1,18 @@
 #!/usr/bin/node
-const box = require ('./101-data.js').dict;
-const secondbox = {};
+/* Write a script that imports a dictionary of occurrences by user id and computes a dictionary of user ids by occurrence.
+
+Your script must import dict from the file 101 - data.js
+In the new dictionary:
+A key is a number of occurrences
+A value is the list of user ids
+Print the new dictionary at the end */
+
+const dict = require('./101-data.js').dict;
+const newDictionary = {};
 for (const key in dict) {
-  if (secondbox[dict[key]] === undefined) {
-    secondbox[dict[key]] = [];
+  if (newDictionary[dict[key]] === undefined) {
+    newDictionary[dict[key]] = [];
   }
-  secondbox[dict[key]].push(key);
+  newDictionary[dict[key]].push(key);
 }
-console.log(secondbox);
+console.log(newDictionary);
