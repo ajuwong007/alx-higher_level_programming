@@ -1,16 +1,21 @@
-#!/usr/bin/node
-
 class Rectangle {
-  constructor(w, h) {
-    if (w > 0 && h > 0) {
-      this.width = w;
-      this.height = h;
+  constructor(width, height) {
+    if (width > 0 && height > 0) {
+      this.width = width;
+      this.height = height;
+    } else {
+      this.width = 0;
+      this.height = 0;
     }
   }
 
   print() {
-    for (let i = 0; i < this.height; i++) {
-      console.log('X'.repeat(this.width));
+    if (this.width === 0 || this.height === 0) {
+      console.log("Empty object");
+    } else {
+      for (let i = 0; i < this.height; i++) {
+        console.log('X'.repeat(this.width));
+      }
     }
   }
 
